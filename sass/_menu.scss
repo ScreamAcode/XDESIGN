@@ -1,0 +1,122 @@
+.navbar-container{
+    background-color: $dark;
+
+    .navbar{
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 1300px;
+        margin: 0 auto;
+        height: 80px;
+        padding: 0 20px;
+        position: sticky;
+        top: 0;
+        font-size: 1.2rem;
+        z-index: 99;
+    
+        &-logo{
+            background-color: $primary-color;
+            background-image: linear-gradient(to top,#ff0844 0%,#ffb199 100%);
+            background-size: 100%;
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2rem;
+            font-weight: 500;
+        }
+
+        &-links{
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            & li{
+                padding: 0 35px;
+                font-weight: 500;
+
+                & a{
+                    padding: 4px 0;
+
+                    &:hover{
+                        border-bottom: 2px solid $text-color;
+                }
+                }
+            }
+
+            & li:last-child{
+                border-radius: 5px;
+                padding: 15px 20px;
+                background-color: $primary-color;
+                outline: none;
+
+                & a:hover{
+                    border-bottom: none;
+                }
+                
+                &:hover{
+                    background-color: #536DFE;
+                    transition: all 0.4s ease-in-out;
+                }
+            }
+        }
+    }
+}
+// toggler
+.toggler{
+    position: absolute;
+    cursor: pointer;
+    width: 28px;
+    height: 20px;
+    top: 2.1rem;
+    right: 1rem;
+    z-index: 999;
+    cursor: pointer;
+    visibility: hidden;
+    @include transition-ease;
+
+    &-hamburger{
+        position: absolute;
+        right: 0;
+        top: 0.5rem;
+        width: 28px;
+        height: 3px;
+        background:$text-color;
+        @include transition-ease;
+
+        &::before{
+            content: '';
+            position: absolute;
+            top: -8px;
+            width: 28px;
+            height: 3px;
+            background: $text-color;     
+            @include transition-ease;  
+        }
+
+        &::after{
+            content: '';
+            position: absolute;
+            top: 8px;
+            width: 28px;
+            height: 3px;
+            background: $text-color; 
+            @include transition-ease;      
+        }
+
+        &.open{
+            transform: rotate(720deg);
+            background: transparent;
+
+            &::before{
+                transform: rotate(45deg) translate(5px,8px);
+            }
+
+            &::after{
+                transform: rotate(-45deg) translate(3px,-7px);
+            }
+        }
+    }
+}
+
